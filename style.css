@@ -568,8 +568,8 @@ button{ font-family: inherit; cursor:pointer; }
 
   .site-footer{ padding:44px 16px 150px; }
   .social-icons{ gap:14px; }
-  .footer-flower-1{ bottom:100px; }
-  .footer-flower-2{ bottom:60px; }
-  .footer-flower-3{ bottom:110px; }
-  .footer-flower-4{ bottom:65px; }
+  .footer-flower-1{ bottom:30px; }
+  .footer-flower-2{ bottom:10px; }
+  .footer-flower-3{ bottom:35px; }
+  .footer-flower-4{ bottom:15px; }
 }
