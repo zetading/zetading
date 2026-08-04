@@ -64,7 +64,7 @@ if(carousel && dotsNav){
 // ===================== Simple contact form validation feedback =====================
 const form = document.querySelector('.contact-form');
 if(form){
-  const inputs = form.querySelectorAll('input');
+  const inputs = form.querySelectorAll('.field input');
 
   function validateField(input){
     const value = input.value.trim();
