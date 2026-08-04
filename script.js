@@ -84,7 +84,13 @@ if(carousel && dotsNav){
     rafId = requestAnimationFrame(inertiaStep);
   }
 
+  cards.forEach((card) => {
+    card.setAttribute('draggable', 'false');
+    card.querySelectorAll('img').forEach((img) => img.setAttribute('draggable', 'false'));
+  });
+
   carousel.addEventListener('mousedown', (e) => {
+    e.preventDefault();
     isDown = true;
     moved = false;
     stopInertia();
