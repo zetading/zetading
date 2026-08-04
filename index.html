@@ -170,15 +170,15 @@
     </h2>
     <p class="contact-subtitle">Thank you for reaching out.<br>Please fill in the information below and let me know what kind of service you are looking for!</p>
 
-    <!-- TODO: 拿到 Formspree 網址後,把下面 action="#" 換成 https://formspree.io/f/你的表單ID -->
-    <form class="contact-form" action="#" method="POST">
-      <!-- 提示:Formspree 設定完成後,建議加上一行 <input type="hidden" name="_subject" value="來自網站的新訊息"> -->
+    <form class="contact-form" action="https://formspree.io/f/mgawwoav" method="POST">
+      <input type="hidden" name="_subject" value="來自網站的新訊息">
+      <input type="text" name="_gotcha" style="display:none">
       <div class="field">
         <div class="field-label-row">
           <label for="name">NAME</label>
           <span class="required">Required field</span>
         </div>
-        <input type="text" id="name" placeholder="Please enter your name">
+        <input type="text" id="name" name="name" placeholder="Please enter your name">
         <span class="error-msg">Please enter valid information</span>
       </div>
 
@@ -187,7 +187,7 @@
           <label for="email">E-mail</label>
           <span class="required">Required field</span>
         </div>
-        <input type="email" id="email" placeholder="Please enter your e-mail">
+        <input type="email" id="email" name="email" placeholder="Please enter your e-mail">
         <span class="error-msg">Please enter valid information</span>
       </div>
 
@@ -196,7 +196,7 @@
           <label for="phone">Phone Number</label>
           <span class="required">Required field</span>
         </div>
-        <input type="tel" id="phone" placeholder="Please enter your phone number">
+        <input type="tel" id="phone" name="phone" placeholder="Please enter your phone number">
         <span class="error-msg">Please enter valid information</span>
       </div>
 
@@ -205,7 +205,7 @@
           <label for="service">Service Type</label>
           <span class="required">Required field</span>
         </div>
-        <input type="text" id="service" placeholder="Please select or describe the service you are looking for">
+        <input type="text" id="service" name="service" placeholder="Please select or describe the service you are looking for">
         <span class="error-msg">Please enter valid information</span>
       </div>
 

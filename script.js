@@ -106,6 +106,31 @@ if(form){
       firstInvalid.focus();
       return;
     }
-    alert('感謝您的訊息!(這是示範表單,尚未串接實際送出功能)');
+
+    const submitBtn = form.querySelector('.btn-submit');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = '傳送中...';
+    submitBtn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then((response) => {
+      if(response.ok){
+        form.reset();
+        alert('感謝您的訊息!我會盡快回覆您 🙂');
+      } else {
+        alert('傳送失敗,請稍後再試一次,或直接寄信給我。');
+      }
+    })
+    .catch(() => {
+      alert('傳送失敗,請確認網路連線後再試一次。');
+    })
+    .finally(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    });
   });
 }
