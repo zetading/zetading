@@ -60,30 +60,64 @@ if(carousel && dotsNav){
 
   setActiveDot(0);
 
-  // ---- 滑鼠拖曳捲動(桌機用滑鼠也能直接拖曳作品區塊) ----
+  // ---- 滑鼠拖曳捲動(含慣性減速,拖曳更順暢) ----
   let isDown = false;
   let startX = 0;
   let startScroll = 0;
   let moved = false;
+  let lastX = 0;
+  let lastT = 0;
+  let velocity = 0;
+  let rafId = null;
+
+  function stopInertia(){
+    if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  function inertiaStep(){
+    velocity *= 0.94; // 摩擦力,數值越接近1滑得越久
+    if(Math.abs(velocity) < 0.5){
+      rafId = null;
+      return;
+    }
+    carousel.scrollLeft -= velocity;
+    rafId = requestAnimationFrame(inertiaStep);
+  }
 
   carousel.addEventListener('mousedown', (e) => {
     isDown = true;
     moved = false;
+    stopInertia();
     carousel.classList.add('dragging');
     startX = e.pageX;
     startScroll = carousel.scrollLeft;
+    lastX = e.pageX;
+    lastT = performance.now();
+    velocity = 0;
   });
 
   window.addEventListener('mouseup', () => {
+    if(isDown && Math.abs(velocity) > 0.5){
+      rafId = requestAnimationFrame(inertiaStep);
+    }
     isDown = false;
     carousel.classList.remove('dragging');
   });
 
   window.addEventListener('mousemove', (e) => {
     if(!isDown) return;
+    e.preventDefault();
     const dx = e.pageX - startX;
     if(Math.abs(dx) > 5) moved = true;
     carousel.scrollLeft = startScroll - dx;
+
+    const now = performance.now();
+    const dt = now - lastT;
+    if(dt > 0){
+      velocity = (e.pageX - lastX) / dt * 16; // 換算成每個 frame 的速度
+    }
+    lastX = e.pageX;
+    lastT = now;
   });
 
   // 拖曳放開後,如果確實拖動過,就攔截該次點擊,避免不小心點到卡片連結
