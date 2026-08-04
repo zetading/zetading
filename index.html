@@ -205,7 +205,10 @@
           <label for="service">Service Type</label>
           <span class="required">Required field</span>
         </div>
-        <input type="text" id="service" name="service" placeholder="Please select or describe the service you are looking for">
+        <div class="combobox">
+          <input type="text" id="service" name="service" placeholder="Please select or describe the service you are looking for" autocomplete="off">
+          <ul class="combobox-list" id="serviceList"></ul>
+        </div>
         <span class="error-msg">Please enter valid information</span>
       </div>
 
@@ -222,16 +225,13 @@
   <img src="images/flower.svg" class="flower footer-flower-4" alt="">
 
   <div class="social-icons">
-    <!-- TODO: 換成 mailto:你的信箱 -->
-    <a href="mailto:your-email@example.com" aria-label="Email" class="social-icon">
+    <a href="mailto:zetading@gmail.com" aria-label="Email" class="social-icon">
       <img src="images/icon-mail.svg" alt="Email">
     </a>
-    <!-- TODO: 換成你的 Instagram 網址 -->
-    <a href="#" aria-label="Instagram" class="social-icon" target="_blank" rel="noopener">
+    <a href="https://www.instagram.com/zizhen_dd/" aria-label="Instagram" class="social-icon" target="_blank" rel="noopener">
       <img src="images/icon-instagram.svg" alt="Instagram">
     </a>
-    <!-- TODO: 換成你的 Facebook 網址 -->
-    <a href="#" aria-label="Facebook" class="social-icon" target="_blank" rel="noopener">
+    <a href="https://www.facebook.com/tw.zetading/?locale=zh_TW" aria-label="Facebook" class="social-icon" target="_blank" rel="noopener">
       <img src="images/icon-facebook.svg" alt="Facebook">
     </a>
     <!-- TODO: 換成你的 YouTube 頻道網址 -->

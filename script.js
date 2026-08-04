@@ -135,6 +135,45 @@ if(carousel && dotsNav){
   }, true);
 }
 
+// ===================== Service Type 下拉建議清單(可打字,也可點選) =====================
+const SERVICE_OPTIONS = [
+  'Banner Design',
+  'Illustration',
+  'Video',
+  'Animation',
+  'Landing Page',
+  'UI Design'
+];
+const serviceInput = document.getElementById('service');
+const serviceList = document.getElementById('serviceList');
+if(serviceInput && serviceList){
+  function renderServiceOptions(filter){
+    const q = filter.trim().toLowerCase();
+    const matches = SERVICE_OPTIONS.filter((o) => o.toLowerCase().includes(q));
+    serviceList.innerHTML = '';
+    if(matches.length === 0){
+      serviceList.classList.remove('open');
+      return;
+    }
+    matches.forEach((opt) => {
+      const li = document.createElement('li');
+      li.textContent = opt;
+      li.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        serviceInput.value = opt;
+        serviceList.classList.remove('open');
+      });
+      serviceList.appendChild(li);
+    });
+    serviceList.classList.add('open');
+  }
+  serviceInput.addEventListener('focus', () => renderServiceOptions(serviceInput.value));
+  serviceInput.addEventListener('input', () => renderServiceOptions(serviceInput.value));
+  serviceInput.addEventListener('blur', () => {
+    setTimeout(() => serviceList.classList.remove('open'), 100);
+  });
+}
+
 // ===================== Simple contact form validation feedback =====================
 const form = document.querySelector('.contact-form');
 if(form){
