@@ -174,8 +174,14 @@ button{ font-family: inherit; cursor:pointer; }
   overflow-x:auto;
   scroll-snap-type: x proximity;
   scrollbar-width:none;
+  cursor: grab;
+  user-select: none;
 }
 .carousel::-webkit-scrollbar{ display:none; }
+.carousel.dragging{
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
 
 .card{
   position:relative;

@@ -59,6 +59,40 @@ if(carousel && dotsNav){
   });
 
   setActiveDot(0);
+
+  // ---- 滑鼠拖曳捲動(桌機用滑鼠也能直接拖曳作品區塊) ----
+  let isDown = false;
+  let startX = 0;
+  let startScroll = 0;
+  let moved = false;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    moved = false;
+    carousel.classList.add('dragging');
+    startX = e.pageX;
+    startScroll = carousel.scrollLeft;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.classList.remove('dragging');
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    const dx = e.pageX - startX;
+    if(Math.abs(dx) > 5) moved = true;
+    carousel.scrollLeft = startScroll - dx;
+  });
+
+  // 拖曳放開後,如果確實拖動過,就攔截該次點擊,避免不小心點到卡片連結
+  carousel.addEventListener('click', (e) => {
+    if(moved){
+      e.preventDefault();
+      moved = false;
+    }
+  }, true);
 }
 
 // ===================== Simple contact form validation feedback =====================
