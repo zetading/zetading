@@ -1,0 +1,527 @@
+/* =========================================================
+   ZI-ZHEN DING Portfolio Website
+   Fonts: Nothing You Could Do (headings/script) / Noto Sans TC (中文) / Open Sans (body)
+   Colors: #24889E (main teal) #53A6B8 (light teal) #213E3E (dark teal)
+           #000000 #FFFFFF #AEAEAE (gray) #C24644 (red)
+   ========================================================= */
+
+:root{
+  --teal-main:  #24889E;
+  --teal-light: #53A6B8;
+  --teal-dark:  #213E3E;
+  --gray:       #AEAEAE;
+  --red:        #C24644;
+  --black:      #000000;
+  --white:      #FFFFFF;
+
+  --font-script: 'Nothing You Could Do', cursive;
+  --font-zh:     'Noto Sans TC', sans-serif;
+  --font-body:   'Open Sans', 'Noto Sans TC', sans-serif;
+
+  --max-width: 1440px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--black);
+  background:#fff;
+  overflow-x:hidden;
+}
+a{ text-decoration:none; color:inherit; }
+img{ max-width:100%; display:block; }
+button{ font-family: inherit; cursor:pointer; }
+
+.flower{ position:absolute; pointer-events:none; user-select:none; }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-family: var(--font-body);
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:.03em;
+  border-radius:30px;
+  padding:14px 34px;
+  border:1.5px solid var(--teal-main);
+}
+.btn-contact-nav{
+  background: var(--teal-main);
+  color:#fff;
+  border:none;
+  padding:14px 30px;
+}
+.btn-outline{
+  position:relative;
+  background:none;
+  border:none;
+  padding:0;
+  width:183px;
+  height:44px;
+}
+.core-button-bg{
+  width:100%;
+  height:100%;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 28px 40px 10px;
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  gap: 40px;
+}
+.menu-icon{
+  background:none;
+  border:none;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:4px;
+  margin-right:auto;
+}
+.menu-icon span{
+  width:26px;
+  height:2px;
+  background: var(--teal-main);
+  display:block;
+}
+.main-nav{
+  display:flex;
+  gap:38px;
+  margin: 0 auto;
+}
+.main-nav a{
+  font-size:16px;
+  color: var(--teal-main);
+  opacity:.85;
+}
+.main-nav a:hover{ opacity:1; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  position:relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 40px 60px;
+  text-align:center;
+}
+.hero-decor .flower{ opacity:.9; }
+.flower-1{ width:64px; top:150px; left:6%; }
+.flower-2{ width:38px; top:250px; left:16%; }
+.flower-3{ width:30px; top:340px; left:11%; }
+.flower-4{ width:56px; top:305px; right:6%; }
+.flower-5{ width:46px; top:400px; right:12%; }
+
+.hero-photo{
+  width: 620px;
+  max-width:90%;
+  aspect-ratio: 1 / 1;
+  border-radius:50%;
+  overflow:hidden;
+  margin: 0 auto;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.03);
+}
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.bird-icon{
+  width:44px;
+  margin: 26px auto 6px;
+}
+.hero-name{
+  font-family: var(--font-script);
+  font-weight:400;
+  font-size: 41px;
+  margin: 4px 0 6px;
+  letter-spacing:.03em;
+}
+.hero-subtitle{
+  font-size:16px;
+  color:#333;
+  margin: 0 0 26px;
+}
+
+/* =========================================================
+   WORKS CAROUSEL BAND
+   ========================================================= */
+.works-band{
+  background: var(--teal-main);
+  padding: 46px 0 40px;
+  position:relative;
+  text-align:center;
+}
+.carousel{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+  display:flex;
+  gap:30px;
+  overflow-x:auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width:none;
+}
+.carousel::-webkit-scrollbar{ display:none; }
+
+.card{
+  position:relative;
+  flex: 0 0 400px;
+  width:400px;
+  height: 520px;
+  padding: 24px 20px 10px 30px;
+  box-sizing:border-box;
+  border-radius: 50px 50px 0 0;
+  overflow:hidden;
+  background: var(--teal-dark);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255,255,255,.15);
+  scroll-snap-align:start;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.card img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.card-photo img{
+  position:static;
+  flex: 0 0 auto;
+  width:360px;
+  height:366px;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 40px 40px 0 0;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.card-photo{
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:16px;
+}
+.card-label{
+  font-family: var(--font-script);
+  color:#fff;
+  font-size: 22px;
+  padding: 14px 0 18px;
+}
+.card-works{
+  justify-content:flex-end;
+}
+.card-works .card-inner{
+  width:100%;
+  text-align:center;
+  padding-bottom: 60px;
+}
+.card-works .card-label{ display:block; }
+.card-arrow{
+  color:#fff;
+  font-size:20px;
+  display:block;
+  margin-top:14px;
+}
+
+.dots-nav{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-top: 30px;
+  background: var(--teal-dark);
+  border-radius: 30px;
+  padding: 13px 20px;
+}
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#fff;
+  border:none;
+  padding:0;
+  cursor:pointer;
+  opacity:.55;
+  transform: scale(1);
+  transition: transform .25s ease, opacity .25s ease;
+}
+.dot.active{
+  opacity:1;
+  transform: scale(1.7);
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+.about{
+  position:relative;
+  max-width: var(--max-width);
+  margin:0 auto;
+  padding: 70px 40px 10px;
+  text-align:center;
+}
+.about-photo-wrap{
+  width: 300px;
+  margin: 0 auto;
+}
+.about-photo{
+  width:100%;
+  border-radius: 24px;
+  border: 3px solid var(--teal-main);
+}
+.about-bird{
+  position:absolute;
+  width:42px;
+  right: 27%;
+  top: 130px;
+}
+.about-cloud{
+  position:absolute;
+  width:63px;
+  right: 21%;
+  top: 140px;
+}
+.about-flower{
+  position:absolute;
+  width:56px;
+  left: 20%;
+  top: 260px;
+}
+.about-line{
+  font-size:15px;
+  margin: 22px 0;
+  color:#111;
+}
+.about-edu{ margin-top:-6px; }
+.about-tagline{
+  font-weight:700;
+  font-size:15px;
+  margin: 10px 0 40px;
+}
+
+.skills-wrap{
+  max-width: 900px;
+  margin: 0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:30px;
+}
+.skills{
+  text-align:left;
+  flex: 1 1 auto;
+}
+.skill-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+}
+.skill-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:230px;
+  padding:12px 22px;
+  border-radius:30px;
+  border:1.5px solid var(--teal-main);
+  color: var(--teal-main);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.02em;
+  text-align:center;
+}
+.skill-icon{
+  width:42px;
+  height:42px;
+  flex-shrink:0;
+}
+
+
+.houses-fill{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-top: 0;
+  line-height: 0;
+  pointer-events:none;
+}
+.houses-fill img{
+  width: 100%;
+  height: auto;
+  display:block;
+}
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+.contact{
+  max-width: var(--max-width);
+  margin:0 auto;
+  padding: 0px 40px 90px;
+}
+.contact-card{
+  background: var(--teal-main);
+  border-radius: 24px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 50px 46px;
+  color:#fff;
+  text-align:center;
+}
+.contact-title{
+  font-family: var(--font-script);
+  font-weight:400;
+  font-size: 32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin: 6px 0 18px;
+}
+.contact-title .flower{
+  position:static;
+  width:26px;
+  filter: brightness(0) invert(1);
+}
+.contact-subtitle{
+  font-size:13px;
+  line-height:1.7;
+  margin: 0 0 26px;
+  opacity:.95;
+}
+.contact-form{ text-align:left; }
+.field{ margin-bottom:16px; }
+.field-label-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:6px;
+}
+.field-label-row label{
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.05em;
+}
+.required{
+  font-size:11px;
+  opacity:.85;
+}
+.field input{
+  width:100%;
+  border:1.5px solid #fff;
+  border-radius:30px;
+  padding:12px 20px;
+  font-size:14px;
+  font-family: var(--font-body);
+  outline:none;
+  background:#fff;
+  color:#111;
+  transition: border-color .2s ease;
+}
+.field input::placeholder{ color: var(--gray); }
+.field input:focus{
+  border-color: var(--black);
+}
+.field input.error{
+  border-color: var(--red);
+  color: var(--red);
+}
+.field input.error::placeholder{ color: var(--red); }
+.error-msg{
+  display:none;
+  font-size:10px;
+  color: var(--red);
+  margin-top:4px;
+  padding-left:16px;
+}
+.field.has-error .error-msg{ display:block; }
+.btn-submit{
+  display:block;
+  margin: 26px auto 0;
+  background:#fff;
+  color: var(--teal-main);
+  border:none;
+  border-radius:30px;
+  padding:14px 38px;
+  font-weight:700;
+  font-size:14px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{
+  position:relative;
+  background: var(--black);
+  color:#fff;
+  padding: 60px 20px 100px;
+  text-align:center;
+  overflow:hidden;
+}
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-bottom:22px;
+}
+.social-icon{
+  width:36px; height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.social-icon img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.copyright{ font-size:14px; letter-spacing:.02em; }
+
+.footer-flower-1{ width:60px; left:15%; bottom:60px; filter:brightness(0) invert(1); }
+.footer-flower-2{ width:36px; left:22%; bottom:30px; filter:brightness(0) invert(1); }
+.footer-flower-3{ width:56px; right:22%; bottom:70px; filter:brightness(0) invert(1); }
+.footer-flower-4{ width:44px; right:14%; bottom:35px; filter:brightness(0) invert(1); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px){
+  .nav-inner{ flex-wrap:wrap; }
+  .main-nav{ order:3; width:100%; justify-content:center; flex-wrap:wrap; gap:18px; margin-top:14px; }
+  .hero-photo{ width:80vw; }
+  .about-photo-wrap{ width:220px; }
+  .skills-wrap{ flex-direction:column; align-items:center; }
+  .houses-illustration{ margin: 20px auto 0; }
+  .about-bird,.about-cloud,.about-flower{ display:none; }
+  .flower-1,.flower-2,.flower-3,.flower-4,.flower-5{ display:none; }
+}
+@media (max-width:600px){
+  .site-header{ padding:20px 20px 6px; }
+  .hero{ padding:24px 20px 40px; }
+  .hero-name{ font-size:36px; }
+  .contact-card{ padding:30px 24px; }
+  .contact-title{ font-size:24px; flex-wrap:wrap; }
+  .about{ padding:50px 20px 40px; }
+  .card{ flex-basis:220px; height:340px; }
+}
