@@ -575,7 +575,7 @@ button{ font-family: inherit; cursor:pointer; }
   .about-bird,.about-cloud,.about-flower{ display:none; }
   .flower-1,.flower-2,.flower-3,.flower-4,.flower-5{ display:none; }
 
-  .carousel{ padding:0 24px; gap:18px; }
+  .carousel{ padding:0 56px; gap:18px; }
   .card{ flex:0 0 300px; width:300px; height:390px; padding:18px 15px 8px 22px; }
   .card-photo img{ width:270px; height:274px; }
   .card-label{ font-size:19px; }
@@ -595,7 +595,7 @@ button{ font-family: inherit; cursor:pointer; }
   .skill-pill{ min-width:auto; flex:1 1 100%; }
   .skill-icon{ width:36px; height:36px; }
 
-  .carousel{ padding:0 22px; gap:14px; }
+  .carousel{ padding:0 40px; gap:14px; }
   .card{ flex:0 0 240px; width:240px; height:320px; padding:14px 12px 6px 18px; border-radius:36px 36px 0 0; }
   .card-photo img{ width:210px; height:220px; border-radius:28px 28px 0 0; }
   .card-label{ font-size:16px; }
