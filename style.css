@@ -595,7 +595,7 @@ button{ font-family: inherit; cursor:pointer; }
   .skill-pill{ min-width:auto; flex:1 1 100%; }
   .skill-icon{ width:36px; height:36px; }
 
-  .carousel{ padding:0 40px; gap:14px; }
+  .carousel{ padding:0 48px; gap:14px; }
   .card{ flex:0 0 240px; width:240px; height:320px; padding:14px 12px 6px 18px; border-radius:36px 36px 0 0; }
   .card-photo img{ width:210px; height:220px; border-radius:28px 28px 0 0; }
   .card-label{ font-size:16px; }
